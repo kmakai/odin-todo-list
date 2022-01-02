@@ -55,6 +55,7 @@ function loadTodos(project) {
     document.querySelector('#project-title').textContent = project.name;
     project.todolist.forEach(element => {
         const todoCard = document.createElement('div');
+        todoCard.id = "todocard";
         const title = document.createElement('div');
         const discription = document.createElement('div');
         const due = document.createElement('div');
@@ -73,7 +74,7 @@ function loadTodos(project) {
             const discription = document.querySelector('#discription');
             const due = document.querySelector('#due');
             const notes = document.querySelector('#notes');
-            const itemForm = document.querySelector("#todo-form");            
+            const itemForm = document.querySelector("#todo-form");
             itemForm.style.visibility = "visible";
             title.value = element.title;
             discription.value = element.discription;
@@ -81,13 +82,9 @@ function loadTodos(project) {
             notes.value = element.notes;
             project.todolist.splice(project.todolist.indexOf(element), 1);
             loadTodos(project);
-            const cancelItemButton = document.querySelector("#cancelItem");
-            cancelItemButton.addEventListener('click', () => {
-                AddItem();
-                itemForm.style.visibility = "collapse";
-            });
+
         })
-        deleteBtn.addEventListener('click',()=>{
+        deleteBtn.addEventListener('click', () => {
             project.todolist.splice(project.todolist.indexOf(element), 1);
             loadTodos(project);
         })
@@ -123,8 +120,6 @@ function AddItem() {
     if ((title && discription && due && notes) != "") {
         projects[CurrentIndexNumber].todolist.push(createTodoItem(title, discription, due, notes));
         loadTodos(projects[CurrentIndexNumber]);
-    } else {
-        alert("fill in the fields!");
     }
 }
 
@@ -205,13 +200,11 @@ newItemButton.addEventListener('click', () => {
     document.querySelector('#discription').value = "";
     document.querySelector('#due').value = "";
     document.querySelector('#notes').value = "";
-    itemForm.style.visibility = "visible";  
-    cancelItemButton.addEventListener('click', () => {
-    itemForm.style.visibility = "collapse";
+    itemForm.style.visibility = "visible";
     cancelItemButton.addEventListener('click', () => {
         itemForm.style.visibility = "collapse";
-    });
-})
+
+    })
 })
 
 
@@ -219,10 +212,14 @@ newItemButton.addEventListener('click', () => {
 createItemButton.addEventListener('click', () => {
     ;(0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.AddItem)();
     itemForm.style.visibility = "collapse";
-  
+
 })
 
-;(0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.addProject)("Test Project");
+cancelItemButton.addEventListener('click', () => {
+    ;(0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.AddItem)();
+    itemForm.style.visibility = "collapse";
+});
+(0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.addProject)("Test Project");
 (0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.loadProjects)();
 _todoapp_js__WEBPACK_IMPORTED_MODULE_0__.projects[0].todolist.push((0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.createTodoItem)("todotest", "test for to do edit", "11/29/21", "notes section"));
 _todoapp_js__WEBPACK_IMPORTED_MODULE_0__.projects[0].todolist.push((0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.createTodoItem)("todotestsecond", "test for to do edit", "11/29/21", "notes section2"));

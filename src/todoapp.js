@@ -38,6 +38,7 @@ function loadTodos(project) {
     document.querySelector('#project-title').textContent = project.name;
     project.todolist.forEach(element => {
         const todoCard = document.createElement('div');
+        todoCard.id = "todocard";
         const title = document.createElement('div');
         const discription = document.createElement('div');
         const due = document.createElement('div');
@@ -56,7 +57,7 @@ function loadTodos(project) {
             const discription = document.querySelector('#discription');
             const due = document.querySelector('#due');
             const notes = document.querySelector('#notes');
-            const itemForm = document.querySelector("#todo-form");            
+            const itemForm = document.querySelector("#todo-form");
             itemForm.style.visibility = "visible";
             title.value = element.title;
             discription.value = element.discription;
@@ -64,13 +65,9 @@ function loadTodos(project) {
             notes.value = element.notes;
             project.todolist.splice(project.todolist.indexOf(element), 1);
             loadTodos(project);
-            const cancelItemButton = document.querySelector("#cancelItem");
-            cancelItemButton.addEventListener('click', () => {
-                AddItem();
-                itemForm.style.visibility = "collapse";
-            });
+
         })
-        deleteBtn.addEventListener('click',()=>{
+        deleteBtn.addEventListener('click', () => {
             project.todolist.splice(project.todolist.indexOf(element), 1);
             loadTodos(project);
         })
@@ -106,9 +103,7 @@ function AddItem() {
     if ((title && discription && due && notes) != "") {
         projects[CurrentIndexNumber].todolist.push(createTodoItem(title, discription, due, notes));
         loadTodos(projects[CurrentIndexNumber]);
-    } else {
-        alert("fill in the fields!");
     }
 }
 
-export {addProject, AddItem, loadProjects, loadTodos, createTodoItem, createProject};
+export { addProject, AddItem, loadProjects, loadTodos, createTodoItem, createProject };
