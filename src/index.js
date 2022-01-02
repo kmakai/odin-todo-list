@@ -11,17 +11,21 @@ newItemButton.addEventListener('click', () => {
     document.querySelector('#discription').value = "";
     document.querySelector('#due').value = "";
     document.querySelector('#notes').value = "";
-    itemForm.style.visibility = "visible";
+    itemForm.style.visibility = "visible";  
+    cancelItemButton.addEventListener('click', () => {
+    itemForm.style.visibility = "collapse";
+    cancelItemButton.addEventListener('click', () => {
+        itemForm.style.visibility = "collapse";
+    });
+})
 })
 
-cancelItemButton.addEventListener('click', () => {
-    AddItem();
-    itemForm.style.visibility = "collapse";
-})
+
 
 createItemButton.addEventListener('click', () => {
     AddItem();
     itemForm.style.visibility = "collapse";
+  
 })
 
 addProject("Test Project");

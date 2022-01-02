@@ -81,6 +81,11 @@ function loadTodos(project) {
             notes.value = element.notes;
             project.todolist.splice(project.todolist.indexOf(element), 1);
             loadTodos(project);
+            const cancelItemButton = document.querySelector("#cancelItem");
+            cancelItemButton.addEventListener('click', () => {
+                AddItem();
+                itemForm.style.visibility = "collapse";
+            });
         })
         deleteBtn.addEventListener('click',()=>{
             project.todolist.splice(project.todolist.indexOf(element), 1);
@@ -200,17 +205,21 @@ newItemButton.addEventListener('click', () => {
     document.querySelector('#discription').value = "";
     document.querySelector('#due').value = "";
     document.querySelector('#notes').value = "";
-    itemForm.style.visibility = "visible";
+    itemForm.style.visibility = "visible";  
+    cancelItemButton.addEventListener('click', () => {
+    itemForm.style.visibility = "collapse";
+    cancelItemButton.addEventListener('click', () => {
+        itemForm.style.visibility = "collapse";
+    });
+})
 })
 
-cancelItemButton.addEventListener('click', () => {
-    ;(0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.AddItem)();
-    itemForm.style.visibility = "collapse";
-})
+
 
 createItemButton.addEventListener('click', () => {
     ;(0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.AddItem)();
     itemForm.style.visibility = "collapse";
+  
 })
 
 ;(0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.addProject)("Test Project");

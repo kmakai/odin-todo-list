@@ -64,6 +64,11 @@ function loadTodos(project) {
             notes.value = element.notes;
             project.todolist.splice(project.todolist.indexOf(element), 1);
             loadTodos(project);
+            const cancelItemButton = document.querySelector("#cancelItem");
+            cancelItemButton.addEventListener('click', () => {
+                AddItem();
+                itemForm.style.visibility = "collapse";
+            });
         })
         deleteBtn.addEventListener('click',()=>{
             project.todolist.splice(project.todolist.indexOf(element), 1);
