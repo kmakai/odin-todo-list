@@ -1,6 +1,22 @@
 import { addProject, AddItem, loadProjects, loadTodos, createTodoItem, createProject, projects } from "./todoapp.js"
 console.log("hello test");
 
+const subButton = document.querySelector("#psubmit");
+
+subButton.addEventListener('click', (e) => {
+    const field = document.querySelector('#project-name');
+    e.preventDefault();
+    if (field.value != "") {
+        addProject(field.value);
+        field.value = '';
+        loadProjects();
+        CurrentIndexNumber = projects.length - 1;
+        loadTodos(projects[CurrentIndexNumber]);
+    } else {
+        alert("Enter a name for your project!");
+    }
+})
+
 const itemForm = document.querySelector("#todo-form");
 const createItemButton = document.querySelector("#item-button");
 const cancelItemButton = document.querySelector("#cancelItem");

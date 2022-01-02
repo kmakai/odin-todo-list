@@ -190,6 +190,22 @@ __webpack_require__.r(__webpack_exports__);
 
 console.log("hello test");
 
+const subButton = document.querySelector("#psubmit");
+
+subButton.addEventListener('click', (e) => {
+    const field = document.querySelector('#project-name');
+    e.preventDefault();
+    if (field.value != "") {
+        (0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.addProject)(field.value);
+        field.value = '';
+        (0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.loadProjects)();
+        CurrentIndexNumber = _todoapp_js__WEBPACK_IMPORTED_MODULE_0__.projects.length - 1;
+        (0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.loadTodos)(_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.projects[CurrentIndexNumber]);
+    } else {
+        alert("Enter a name for your project!");
+    }
+})
+
 const itemForm = document.querySelector("#todo-form");
 const createItemButton = document.querySelector("#item-button");
 const cancelItemButton = document.querySelector("#cancelItem");
