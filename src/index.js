@@ -1,4 +1,5 @@
-import Project from "./project.js"
+import Project from './project.js';
 
-const t = new Project("tester");
-console.log(t)
+const t = new Project('tester');
+t.addItem('test', 'test disc', 'test due', 'test notes');
+console.log(t);

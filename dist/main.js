@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _project_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project.js */ \"./src/project.js\");\n\r\n\r\nconst t = new _project_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"](\"tester\");\r\nconsole.log(t)\n\n//# sourceURL=webpack://odin-todo-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _project_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project.js */ \"./src/project.js\");\n\n\nconst t = new _project_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]('tester');\nt.addItem('test', 'test disc', 'test due', 'test notes');\nconsole.log(t);\n\n\n//# sourceURL=webpack://odin-todo-list/./src/index.js?");
 
 /***/ }),
 
@@ -26,7 +26,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _pro
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Project)\n/* harmony export */ });\nclass Project {\r\n  constructor(title) {\r\n    (this.title = title), (this.items = []);\r\n  }\r\n}\r\n\n\n//# sourceURL=webpack://odin-todo-list/./src/project.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Project)\n/* harmony export */ });\n/* harmony import */ var _todoitem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todoitem.js */ \"./src/todoitem.js\");\n\r\n\r\n\r\n\r\nclass Project {\r\n  constructor(title) {\r\n    (this.title = title), (this.items = []);\r\n  }\r\n\r\n  addItem(title, discription, due, notes){\r\n    this.items.push(new _todoitem_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"](title, discription, due, notes));\r\n  }\r\n}\r\n\n\n//# sourceURL=webpack://odin-todo-list/./src/project.js?");
+
+/***/ }),
+
+/***/ "./src/todoitem.js":
+/*!*************************!*\
+  !*** ./src/todoitem.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ toDoItem)\n/* harmony export */ });\nclass toDoItem {\r\n  constructor(title, discription, due, notes) {\r\n    (this.title = title),\r\n      (this.discription = discription),\r\n      (this.due = due),\r\n      (this.notes = notes);\r\n  }\r\n}\r\n\n\n//# sourceURL=webpack://odin-todo-list/./src/todoitem.js?");
 
 /***/ })
 
