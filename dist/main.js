@@ -1,132 +1,36 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ([
-/* 0 */,
-/* 1 */
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "projects": () => (/* binding */ projects),
-/* harmony export */   "addProject": () => (/* binding */ addProject),
-/* harmony export */   "AddItem": () => (/* binding */ AddItem),
-/* harmony export */   "loadProjects": () => (/* binding */ loadProjects),
-/* harmony export */   "loadTodos": () => (/* binding */ loadTodos),
-/* harmony export */   "createTodoItem": () => (/* binding */ createTodoItem),
-/* harmony export */   "createProject": () => (/* binding */ createProject)
-/* harmony export */ });
-//classes.
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _project_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project.js */ \"./src/project.js\");\n\n\n//# sourceURL=webpack://odin-todo-list/./src/index.js?");
 
-class Project {
-    constructor(name) {
-        this.name = name,
-            this.todolist = []
-    }
-}
+/***/ }),
 
-class TodoItem {
-    constructor(title, discription, due, notes) {
-        this.title = title,
-            this.discription = discription,
-            this.due = due,
-            this.notes = notes
-    }
-}
+/***/ "./src/project.js":
+/*!************************!*\
+  !*** ./src/project.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-//functions.
-
-function createProject(name) {
-    return new Project(name);
-}
-
-function createTodoItem(title, discription, due, notes) {
-    return new TodoItem(title, discription, due, notes);
-}
-
-const projects = [];
-function addProject(name) {
-    projects.push(createProject(name));
-    return projects;
-}
-
-
-function loadTodos(project) {
-    document.querySelector('#todomap').textContent = "";
-    document.querySelector('#project-title').textContent = project.name;
-    project.todolist.forEach(element => {
-        const todoCard = document.createElement('div');
-        todoCard.id = "todocard";
-        const title = document.createElement('div');
-        const discription = document.createElement('div');
-        const due = document.createElement('div');
-        const notes = document.createElement('div');
-        title.textContent = `Title: ${element.title}`;
-        discription.textContent = `Discription: ${element.discription}`;
-        due.textContent = `Due Date: ${element.due}`;
-        notes.textContent = `Notes: ${element.notes}`;
-        todoCard.append(title, discription, due, notes);
-        const update = document.createElement("button");
-        const deleteBtn = document.createElement("button");
-        update.textContent = "Update/Edit";
-        deleteBtn.textContent = "Delete";
-        update.addEventListener('click', () => {
-            const title = document.querySelector('#title');
-            const discription = document.querySelector('#discription');
-            const due = document.querySelector('#due');
-            const notes = document.querySelector('#notes');
-            const itemForm = document.querySelector("#todo-form");
-            itemForm.style.visibility = "visible";
-            title.value = element.title;
-            discription.value = element.discription;
-            due.value = element.due;
-            notes.value = element.notes;
-            project.todolist.splice(project.todolist.indexOf(element), 1);
-            loadTodos(project);
-
-        })
-        deleteBtn.addEventListener('click', () => {
-            project.todolist.splice(project.todolist.indexOf(element), 1);
-            loadTodos(project);
-        })
-        todoCard.append(update);
-        todoCard.append(deleteBtn);
-        document.querySelector('#todomap').append(todoCard);
-    });
-
-}
-let CurrentIndexNumber = 0;
-function loadProjects() {
-
-    const list = document.querySelector('#project-list');
-    list.innerHTML = "";
-    for (let index = 0; index < projects.length; index++) {
-        const li = document.createElement('li');
-        li.textContent = projects[index].name;
-        list.append(li);
-        li.addEventListener('click', () => {
-            loadTodos(projects[index]);
-            CurrentIndexNumber = index;
-            console.log(CurrentIndexNumber);
-        })
-    }
-}
-
-function AddItem() {
-    const title = document.querySelector('#title').value;
-    const discription = document.querySelector('#discription').value;
-    const due = document.querySelector('#due').value;
-    const notes = document.querySelector('#notes').value;
-
-    if ((title && discription && due && notes) != "") {
-        projects[CurrentIndexNumber].todolist.push(createTodoItem(title, discription, due, notes));
-        loadTodos(projects[CurrentIndexNumber]);
-    }
-}
-
-
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Project)\n/* harmony export */ });\nclass Project {\r\n  constructor(title) {\r\n    (this.title = title), (this.items = []);\r\n  }\r\n}\r\n\n\n//# sourceURL=webpack://odin-todo-list/./src/project.js?");
 
 /***/ })
-/******/ 	]);
+
+/******/ 	});
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
@@ -182,65 +86,11 @@ function AddItem() {
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _todoapp_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-
-console.log("hello test");
-
-const subButton = document.querySelector("#psubmit");
-
-subButton.addEventListener('click', (e) => {
-    const field = document.querySelector('#project-name');
-    e.preventDefault();
-    if (field.value != "") {
-        (0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.addProject)(field.value);
-        field.value = '';
-        (0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.loadProjects)();
-        CurrentIndexNumber = _todoapp_js__WEBPACK_IMPORTED_MODULE_0__.projects.length - 1;
-        (0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.loadTodos)(_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.projects[CurrentIndexNumber]);
-    } else {
-        alert("Enter a name for your project!");
-    }
-})
-
-const itemForm = document.querySelector("#todo-form");
-const createItemButton = document.querySelector("#item-button");
-const cancelItemButton = document.querySelector("#cancelItem");
-const newItemButton = document.querySelector("#new-item-btn");
-
-newItemButton.addEventListener('click', () => {
-    document.querySelector('#title').value = "";
-    document.querySelector('#discription').value = "";
-    document.querySelector('#due').value = "";
-    document.querySelector('#notes').value = "";
-    itemForm.style.visibility = "visible";
-    cancelItemButton.addEventListener('click', () => {
-        itemForm.style.visibility = "collapse";
-
-    })
-})
-
-
-
-createItemButton.addEventListener('click', () => {
-    ;(0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.AddItem)();
-    itemForm.style.visibility = "collapse";
-
-})
-
-cancelItemButton.addEventListener('click', () => {
-    ;(0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.AddItem)();
-    itemForm.style.visibility = "collapse";
-});
-(0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.addProject)("Test Project");
-(0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.loadProjects)();
-_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.projects[0].todolist.push((0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.createTodoItem)("todotest", "test for to do edit", "11/29/21", "notes section"));
-_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.projects[0].todolist.push((0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.createTodoItem)("todotestsecond", "test for to do edit", "11/29/21", "notes section2"));
-(0,_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.loadTodos)(_todoapp_js__WEBPACK_IMPORTED_MODULE_0__.projects[0]);
-})();
-
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
+/******/ 	
 /******/ })()
 ;
