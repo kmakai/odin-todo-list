@@ -99,8 +99,12 @@ body {
   display: grid;
   align-items: center;
   justify-items: center;
-  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
   width: 50%;
+}
+
+.item:hover {
+  cursor: pointer;
 }
 
 .item h3 {
@@ -109,4 +113,18 @@ body {
 
 .item p {
   font-size: 1.4rem;
+}
+
+.item button {
+  opacity: 0;
+  padding: .4rem;
+  color: #fff;
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+}
+
+.item:hover button {
+  opacity: 1;
+  cursor: pointer;
 }
