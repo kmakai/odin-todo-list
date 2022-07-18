@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -8,7 +8,7 @@
 
 html {
   font-size: 62.5%;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -59,6 +59,10 @@ body {
   font-size: 1.4rem;
 }
 
+.project:hover {
+  cursor: pointer;
+}
+
 .project span {
   display: none;
   font-size: 1.2rem;
@@ -69,6 +73,10 @@ body {
   margin-left: auto;
 }
 
+.project span:hover {
+  transform: scale(1.2);
+}
+
 .project:hover span {
   display: flex;
   align-items: center;
@@ -77,4 +85,28 @@ body {
 
 .main {
   border: 1px solid green;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(auto-fill, minmax(2rem, 4rem));
+  gap: 1rem;
+
+  padding: 1rem 2rem;
+}
+
+.item {
+  border: 1px solid lightgrey;
+
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  width: 50%;
+}
+
+.item h3 {
+  font-size: 1.8rem;
+}
+
+.item p {
+  font-size: 1.4rem;
 }
