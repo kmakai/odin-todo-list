@@ -94,9 +94,9 @@ body {
   align-items: center;
   border-top: 1px solid skyblue;
   border-bottom: 1px solid skyblue;
-  padding: 1rem;
+  padding: 1.2rem;
 
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 
 .project:hover {

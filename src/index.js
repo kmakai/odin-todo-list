@@ -116,9 +116,19 @@ formSubmit.addEventListener('click', (e) => {
 });
 
 const newProjectBtn = document.querySelector('.new-project-button');
-const projectInput = document.querySelector(".project-name-container");
+const projectInput = document.querySelector('.project-name-container');
+const projectName = document.querySelector('.project-name');
+
 newProjectBtn.addEventListener('click', () => {
   projectInput.classList.toggle('hidden');
+});
+
+const projectSubmitBtn = document.querySelector('.project-name-submit');
+projectSubmitBtn.addEventListener('click', () => {
+  projects.push(new Project(projectName.value));
+  projectInput.classList.toggle('hidden');
+  projectsContainer.innerHTML = '';
+  displayProjects();
 });
 
 displayProjects();
