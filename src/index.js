@@ -115,4 +115,10 @@ formSubmit.addEventListener('click', (e) => {
   displayItems(currentProject);
 });
 
+const newProjectBtn = document.querySelector('.new-project-button');
+const projectInput = document.querySelector(".project-name-container");
+newProjectBtn.addEventListener('click', () => {
+  projectInput.classList.toggle('hidden');
+});
+
 displayProjects();

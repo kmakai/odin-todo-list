@@ -63,6 +63,25 @@ body {
   font-weight: bold;
 }
 
+
+
+.project-name {
+  margin-left: 1rem;
+  padding: 1rem;
+  font-size: 1.4rem;
+  border: none;
+  outline: 1px solid lightblue;
+  width: 70%;
+}
+.project-name-submit{
+  height: 100%;
+  padding: 1rem;
+}
+
+.hidden {
+  display: hidden;
+}
+
 .projects-container {
   margin-top: 2rem;
   display: flex;
