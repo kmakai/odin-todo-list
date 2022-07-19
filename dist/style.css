@@ -123,10 +123,14 @@ body {
   letter-spacing: 0.2rem;
 }
 
+.newItemBtn:hover {
+  cursor: pointer;
+}
+
 .new-item-form {
   position: absolute;
-  left: 30%;
-  top: 6%;
+  left: 35%;
+  top: 7.5%;
   display: flex;
   gap: 1rem;
   z-index: 99;
@@ -134,11 +138,11 @@ body {
   border-radius: 0.5rem;
   background-color: lightblue;
   padding: 0.5rem 1rem;
+  opacity: 0;
 }
 
 .new-item-form input {
   font-size: 1.2rem;
-  padding: 0.2rem 0.4rem;
   border: none;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
