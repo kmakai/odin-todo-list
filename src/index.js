@@ -1,15 +1,33 @@
 import Project from './project.js';
 
-const t = new Project('Tester');
-t.addItem('test', 'test disc', '11/18/2022', 'test notes');
-t.addItem('test2', 'test disc', '11/18/2022', 'test notes');
-t.addItem('test3', 'test disc', '11/18/2022', 'test notes');
-t.addItem('test4', 'test disc', '11/18/2022', 'test notes');
-console.log(t);
 
-const projects = [t, t, t, t];
+// filler projects and items for testing
+const t = new Project('Tester1');
+t.addItem('test11', 'test disc', '11/18/2022', 'test notes');
+t.addItem('test12', 'test disc', '11/18/2022', 'test notes');
+t.addItem('test13', 'test disc', '11/18/2022', 'test notes');
+t.addItem('test14', 'test disc', '11/18/2022', 'test notes');
+
+const e = new Project('Tester2');
+e.addItem('test21', 'test disc', '11/18/2022', 'test notes');
+e.addItem('test22', 'test disc', '11/18/2022', 'test notes');
+e.addItem('test23', 'test disc', '11/18/2022', 'test notes');
+e.addItem('test24', 'test disc', '11/18/2022', 'test notes');
+
+const s = new Project('Tester3');
+s.addItem('test31', 'test disc', '11/18/2022', 'test notes');
+s.addItem('test32', 'test disc', '11/18/2022', 'test notes');
+s.addItem('test33', 'test disc', '11/18/2022', 'test notes');
+s.addItem('test34', 'test disc', '11/18/2022', 'test notes');
+
+const k = new Project('Tester4');
+k.addItem('test41', 'test disc', '11/18/2022', 'test notes');
+k.addItem('test42', 'test disc', '11/18/2022', 'test notes');
+k.addItem('test43', 'test disc', '11/18/2022', 'test notes');
+k.addItem('test44', 'test disc', '11/18/2022', 'test notes');
+
+const projects = [t, e, s, k];
 let currentProject;
-console.log(projects);
 
 const pcont = document.querySelector('.projects-container');
 
@@ -23,21 +41,26 @@ const displayProjects = function () {
     div.addEventListener('click', () => {
       document.querySelector('.main').innerHTML = '';
       currentProject = projects[i];
-
       displayItems(currentProject);
-
-      // const itemDels = document.querySelectorAll('.item-del');
-      // itemDels.forEach('click', () => {
-
-      // });
     });
 
     pcont.append(div);
+  });
+
+  const delProjectBtns = document.querySelectorAll('.project span');
+  delProjectBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      projects.splice(e.target.parentNode.id, 1);
+      pcont.innerHTML = '';
+      displayProjects();
+    });
   });
 };
 
 const displayItems = function (p) {
   p.items.forEach((item, i) => {
+    const main = document.querySelector('.main');
     const divItem = document.createElement('div');
     divItem.className = 'item';
     divItem.innerHTML = `<input type="checkbox" id="mark"/><h3 id="title">${item.title}</h3>
@@ -45,18 +68,10 @@ const displayItems = function (p) {
   <p id="due-date">${item.due}</p>
   <button class="item-del" id="${i}">delete</button>`;
 
-    document.querySelector('.main').append(divItem);
+    main.append(divItem);
   });
+
+  const delItemBtns = document.querySelectorAll('item-del');
 };
 
 displayProjects();
-
-const delProjectBtns = document.querySelectorAll('.project span');
-delProjectBtns.forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    projects.splice(e.target.parentNode.id, 1);
-    pcont.innerHTML = '';
-    displayProjects();
-  });
-});
