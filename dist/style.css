@@ -44,13 +44,19 @@ body {
   align-items: center;
   gap: 2rem;
   color: skyblue;
-  font-size: 1rem;
+  font-size: 1.4rem;
   font-weight: bold;
   letter-spacing: 0.2rem;
+  margin: 1rem 1rem;
+  padding: 1rem;
+  width: 80%;
+  border: 1px solid lightblue;
 }
 
 .new-project-button:hover {
   cursor: pointer;
+  color: #fff;
+  background-color: lightblue;
 }
 .new-project-button i {
   font-size: 2rem;
@@ -96,7 +102,7 @@ body {
 }
 
 .project:hover span {
- opacity: 1;
+  opacity: 1;
 }
 
 .main {
@@ -143,6 +149,7 @@ body {
   padding: 0.5rem 1rem;
   opacity: 0;
 }
+
 
 .new-item-form input {
   font-size: 1.2rem;
