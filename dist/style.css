@@ -14,29 +14,47 @@ html {
 body {
   width: 100vw;
   height: 90vh;
-  padding: 2.5rem;
+  padding: 1.4rem 4rem;
+  background-color: #f3f4f6;
 }
 
 .container {
   display: flex;
-  /* grid-template-columns: 1fr 4fr; */
-  border: 1px solid blue;
+  border: 1px solid #cbd5e1;
+  background-color: #fff;
+  box-shadow: 0px 0px 7px 2px #CBD5E1;
+  border-radius: 0.5rem;
 
   height: 100%;
   width: 100%;
 }
 
+header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+header h1 {
+  font-size: 4rem;
+  font-style: italic;
+  text-transform: uppercase;
+  color: #2563eb;
+}
+
 .menu {
-  border: 1px solid red;
+  border-right: 1px solid #cbd5e1;
   width: 20%;
 }
 
 .projects-header {
   font-size: 2rem;
+  font-style: italic;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem;
+  padding-left: 1rem;
+  color: #2563eb;
 }
 
 .new-project-button {
@@ -63,8 +81,6 @@ body {
   font-weight: bold;
 }
 
-
-
 .project-name {
   margin-left: 1rem;
   padding: 1rem;
@@ -73,7 +89,7 @@ body {
   outline: 1px solid lightblue;
   width: 70%;
 }
-.project-name-submit{
+.project-name-submit {
   height: 100%;
   padding: 1rem;
 }
@@ -86,17 +102,21 @@ body {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  /* gap: 1rem; */
+  border-bottom: 2px solid #cbd5e1;
+
 }
 
 .project {
   display: flex;
   align-items: center;
-  border-top: 1px solid skyblue;
-  border-bottom: 1px solid skyblue;
-  padding: 1.2rem;
+  /* border-top: 1px solid #cbd5e1; */
+  border-top: 2px solid #cbd5e1;
+  padding: 1rem;
 
   font-size: 1rem;
+  font-style: italic;
+  color: #3b82f6;
 }
 
 .project:hover {
@@ -126,7 +146,7 @@ body {
 
 .main {
   position: relative;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-auto-flow: column;
@@ -169,7 +189,6 @@ body {
   opacity: 0;
 }
 
-
 .new-item-form input {
   font-size: 1.2rem;
   border: none;
@@ -208,7 +227,7 @@ body {
 }
 
 .item h3 {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
 }
 
 .item p {
@@ -217,7 +236,7 @@ body {
 
 .item button {
   opacity: 0;
-  padding: 0.4rem;
+  padding: 0.5rem;
   color: #fff;
   background-color: red;
   border: none;
