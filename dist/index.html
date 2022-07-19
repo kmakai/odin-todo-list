@@ -21,13 +21,39 @@
     </header>
     <div class="container">
       <aside class="menu">
-        <h2 class="projects-header">
-          PROJECTS <i class="fa-regular fa-plus"></i>
-        </h2>
+        <h2 class="projects-header">PROJECTS</h2>
+        <span class="new-project-button"
+          ><i class="fa-regular fa-plus"></i> New project</span
+        >
+
         <div class="projects-container"></div>
+        <form class="new-item-form" onsubmit="return false">
+          <input
+            type="text"
+            name="item-title"
+            id="item-title"
+            value="Add Title"
+          />
+          <input
+            type="text"
+            name="item-disc"
+            id="item-disc"
+            value="Discription"
+          />
+          <input
+            type="date"
+            name="item-due-date"
+            id="item-due-date"
+            value="2022-12-02"
+          />
+          <input type="text" name="notes" id="notes" value="notes" />
+          <button class="item-submit">submit</button>
+        </form>
       </aside>
+
       <main class="main"></main>
     </div>
+
     <footer>@kmakai 2022</footer>
     <script src="main.js"></script>
   </body>

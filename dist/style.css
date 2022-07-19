@@ -19,7 +19,7 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: 25vh 1fr;
+  grid-template-columns: 1fr 4fr;
   border: 1px solid blue;
 
   height: 100%;
@@ -37,7 +37,21 @@ body {
   justify-content: space-between;
   padding: 0.5rem;
 }
-.projects-header i {
+
+.new-project-button {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  color: skyblue;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+}
+
+.new-project-button:hover {
+  cursor: pointer;
+}
+.new-project-button i {
   font-size: 2rem;
   font-weight: bold;
 }
@@ -84,13 +98,67 @@ body {
 }
 
 .main {
+  position: relative;
   border: 1px solid green;
   display: grid;
-  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: column dense;
   grid-template-rows: repeat(auto-fill, minmax(2rem, 4rem));
   gap: 1rem;
 
-  padding: 1rem 2rem;
+  padding: 0 2rem;
+  padding-top: 5.4rem;
+}
+
+.newItemBtn {
+  position: absolute;
+  top: 1%;
+  left: 2%;
+  /* transform: translateX(-50%); */
+  border: 1px solid skyblue;
+  padding: 1rem;
+  color: skyblue;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+}
+
+.new-item-form {
+  position: absolute;
+  left: 30%;
+  top: 6%;
+  display: flex;
+  gap: 1rem;
+  z-index: 99;
+  height: 3.4rem;
+  border-radius: 0.5rem;
+  background-color: lightblue;
+  padding: 0.5rem 1rem;
+}
+
+.new-item-form input {
+  font-size: 1.2rem;
+  padding: 0.2rem 0.4rem;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.new-item-form button {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  color: rgb(108, 179, 202);
+  font-weight: bold;
+}
+
+.new-item-form button:hover {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
 
 .item {
@@ -100,7 +168,6 @@ body {
   align-items: center;
   justify-items: center;
   grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
-  width: 50%;
 }
 
 .item:hover {
@@ -117,7 +184,7 @@ body {
 
 .item button {
   opacity: 0;
-  padding: .4rem;
+  padding: 0.4rem;
   color: #fff;
   background-color: red;
   border: none;
