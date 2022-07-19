@@ -65,17 +65,11 @@ const displayItems = function (p) {
   newItemBtn.textContent = 'Add new item';
   main.append(newItemBtn);
 
-  const itemForm = document.querySelector(".new-item-form");
-  const formSubmit = document.querySelector(".item-submit");
+  const itemForm = document.querySelector('.new-item-form');
 
   newItemBtn.addEventListener('click', () => {
-    console.log('clicked');
     itemForm.style.opacity = 1;
   });
-
-  formSubmit.addEventListener('click', ()=>{
-    itemForm.style.opacity = 0;
-  })
 
   p.items.forEach((item, i) => {
     const divItem = document.createElement('div');
@@ -98,5 +92,27 @@ const displayItems = function (p) {
     });
   });
 };
+
+const itemForm = document.querySelector('.new-item-form');
+const formSubmit = document.querySelector('.item-submit');
+const itemTitle = document.querySelector('#item-title');
+const itemDisc = document.querySelector('#item-disc');
+const itemDueDate = document.querySelector('#item-due-date');
+const itemNotes = document.querySelector('#notes');
+const main = document.querySelector('.main');
+
+formSubmit.addEventListener('click', (e) => {
+  e.stopPropagation();
+  currentProject.addItem(
+    itemTitle.value,
+    itemDisc.value,
+    itemDueDate.value,
+    itemNotes.value
+  );
+  itemForm.style.opacity = 0;
+  itemTitle.value = itemDisc.value = itemDueDate.value = itemNotes.value = '';
+  main.innerHTML = '';
+  displayItems(currentProject);
+});
 
 displayProjects();
