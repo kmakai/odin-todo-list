@@ -1,6 +1,5 @@
 import Project from './project.js';
 
-
 // filler projects and items for testing
 const t = new Project('Tester1');
 t.addItem('test11', 'test disc', '11/18/2022', 'test notes');
@@ -32,6 +31,7 @@ let currentProject;
 const pcont = document.querySelector('.projects-container');
 
 const displayProjects = function () {
+  const main = document.querySelector('.main');
   projects.forEach((p, i) => {
     const div = document.createElement('div');
     div.className = 'project';
@@ -39,7 +39,7 @@ const displayProjects = function () {
     div.innerHTML = `<h2>${p.title}</h2><span>remove</span>`;
 
     div.addEventListener('click', () => {
-      document.querySelector('.main').innerHTML = '';
+      main.innerHTML = '';
       currentProject = projects[i];
       displayItems(currentProject);
     });
@@ -72,6 +72,7 @@ const displayItems = function (p) {
   });
 
   const delItemBtns = document.querySelectorAll('item-del');
+  console.log(delItemBtns);
 };
 
 displayProjects();
